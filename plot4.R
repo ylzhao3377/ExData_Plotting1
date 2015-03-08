@@ -1,10 +1,13 @@
+#change the file path to adjust yours
 setwd('~/Documents/coursera')
 powerdata<-read.table('household_power_consumption.txt',header=TRUE,sep=";",stringsAsFactors = FALSE)
+#change the format of date and time
 mydata<-subset(powerdata, Date %in% c('1/2/2007',"2/2/2007"))
 mydata$Date<-as.Date(mydata$Date,"%d/%m/%Y")
 newtime<-as.POSIXct(strptime(paste(mydata$Date, mydata$Time,sep = ' '),"%Y-%m-%d %H:%M:%S"))
 mydata$weekdays<-weekdays(mydata$Date)
 mydata$Global_active_power<-as.numeric(mydata$Global_active_power)
+#plotting
 attach(mydata)
 png(filename = "plot4.png",width = 480, height = 480)
 par(mfrow=c(2,2))

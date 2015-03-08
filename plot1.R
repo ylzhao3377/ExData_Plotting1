@@ -1,3 +1,4 @@
+#change the file path to adjust your computer
 setwd('~/Documents/coursera')
 powerdata<-read.table('household_power_consumption.txt',header=TRUE,sep=";",stringsAsFactors = FALSE)
 mydata<-subset(powerdata, Date %in% c('1/2/2007',"2/2/2007"))
